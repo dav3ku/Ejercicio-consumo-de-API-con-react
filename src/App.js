@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Consumo de API</h1>
-        <MainApp></MainApp>
+        <MainApp></MainApp> {/* Componente principal */}
       </header>
     </div>
   );
