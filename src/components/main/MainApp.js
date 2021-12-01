@@ -6,14 +6,6 @@ const MainApp = () => {
   const [datas, setDatas] = useState([]);
   const [load, setLoad] = useState(false);
 
-  const callApp = () => {
-    setLoad(true);
-  };
-
-  const reset = () => {
-    setLoad(false);
-  };
-
   useEffect(() => {
     if (load) {
       getAllPeople().then((datos) => {
@@ -23,19 +15,19 @@ const MainApp = () => {
     } else {
       return () => setDatas([]);
     }
-  }, [datas, load]);
+  }, [load]);
 
   return (
     <>
       {load ? (
         <>
           <DataTable datas={datas}></DataTable>
-          <button onClick={reset}> Borrar </button>
+          <button onClick={() => setLoad(false)}> Borrar </button>
         </>
       ) : (
         <>
-          <h5> Sin datos aún </h5>
-          <button onClick={callApp}>Cargar Datos</button>
+          <h3> Sin datos aún </h3>
+          <button onClick={() => setLoad(true)}>Cargar Datos</button>
         </>
       )}
     </>
