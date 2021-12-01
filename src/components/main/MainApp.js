@@ -12,9 +12,8 @@ const MainApp = () => {
         const { results } = datos;
         setDatas(results);
       });
-    } else {
-      return () => setDatas([]);
     }
+    return () => setDatas([]);
   }, [load]);
 
   return (
